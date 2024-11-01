@@ -28,7 +28,7 @@ class db:
                 print("Values Inserted")
                 return new_index
     def get_data(self,table_name:str):
-        with open(""+table_name+".csv","r") as f:
+        with open(table_name+".csv","r") as f:
             raw_data = f.readlines()
             tbl_fields = raw_data[0][:-1:].split(",")[0::]
             parsed_data = []
