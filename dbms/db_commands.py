@@ -3,23 +3,20 @@ import time
 import random
 class db:
     def __init__(self):
-        self.root = os.path.abspath(os.curdir).replace("\\","/")+"/dbms"
+        self.root = ""
         print(self.root)
 
     def create_table(self, table_name:str,fields:list):	
-        assert not(os.path.exists(self.root+"/"+table_name+".csv")),"Table already exist"
-        with open(self.root+"/"+table_name+".csv","w") as f:
+        with open(table_name+".csv","w") as f:
             f.write("id,"+",".join(fields))
             print("Table Created")
 
     def drop_table(self, table_name:str):
-        assert os.path.exists(self.root+"/"+table_name+".csv"), "Table does not exist"
-        os.remove(self.root+"/"+table_name+".csv")
+        os.remove(table_name+".csv")
         print("Table Dropped")
 
     def insert_into_table(self,table_name:str,values:list,fields:list = None):
-        assert os.path.exists(self.root+"/"+table_name+".csv"), "Table does not exist"
-        with open(self.root+"/"+table_name+".csv","r") as f:
+        with open("dbms/"+table_name+".csv","r") as f:
             tbl_fields = f.readline().replace("\n","").split(",")[1::]
             new_index = str(int(time.time()))+"."+str(random.randint(1,10000))
             if (values):
@@ -37,13 +34,12 @@ class db:
             else:
                 for i in tbl_fields:
                     real_values.append(values[tbl_fields.index(i)])
-            with open(self.root+"/"+table_name+".csv","a") as f:
+            with open(table_name+".csv","a") as f:
                 f.write("\n"+str(new_index)+","+",".join(real_values))
                 print("Values Inserted")
                 return new_index
     def get_data(self,table_name:str,fields:list = []):
-        assert os.path.exists(self.root+"/"+table_name+".csv"), "Table does not exist"
-        with open(self.root+"/"+table_name+".csv","r") as f:
+        with open("dbms/"+table_name+".csv","r") as f:
             raw_data = f.readlines()
             tbl_fields = raw_data[0][:-1:].split(",")[0::]
             if (len(fields)!=0):
@@ -61,13 +57,12 @@ class db:
                 parsed_data.append(temp)
             return parsed_data
     def delete_item(self,table_name:str,id:str):
-        assert os.path.exists(self.root+"/"+table_name+".csv"), "Table does not exist"
-        with open(self.root+"/"+table_name+".csv","r") as f:
+        with open(table_name+".csv","r") as f:
             raw_data = f.readlines()
             flag = False
             for i in range(len(raw_data)-1):
                 if (raw_data[i+1].split(",")[0]==id):
-                    with open(self.root+"/"+table_name+".csv","w") as f2:
+                    with open(table_name+".csv","w") as f2:
                         f2.write("".join(raw_data[:i+1:]+raw_data[i+2::]))
                     flag = True
                     break
