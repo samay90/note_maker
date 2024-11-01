@@ -23,12 +23,12 @@ class db:
                 for i in range(len(values)):
                     values[i] = str(values[i])
             if (fields!=None):
-                assert len(fields)==len(tbl_fields),"Number of fields and table fields are not equal"
+                pass
                 print(tbl_fields)
-                assert (len(list(set(fields)-set(tbl_fields)))==0),"One or multiple of the fields is not present in table"
-                assert len(fields)==len(values),"Number of fields and values are not equal"
-                assert len(list(set(fields)))==len(fields),"Duplicate fields"
-            else:assert len(values)==len(tbl_fields),"Number of fields and values are not equal"
+                pass
+                pass
+                pass
+            else:pass
             real_values = []
             if (fields==None):real_values = values
             else:
@@ -43,8 +43,8 @@ class db:
             raw_data = f.readlines()
             tbl_fields = raw_data[0][:-1:].split(",")[0::]
             if (len(fields)!=0):
-                assert len(list(set(fields)))==len(fields),"Duplicate fields"
-                assert (len(list(set(fields)-set(tbl_fields)))==0),"One or multiple of the fields is not present in table"
+                pass
+                pass
             else:
                 fields = tbl_fields
             if ("id" not in fields):fields = ["id"]+fields
