@@ -16,5 +16,5 @@ else:
             st.header("Title: "+found_data["title"].replace("%#$d35f906(",","))
             st.write("Id: ",found_data["id"])
             st.write("Password: "+found_data["password"].replace("%#$d35f906(",""))
-            st.write(found_data["body"].replace("%#$d35f906(",""))
+            st.write(found_data["body"].replace("%#$d35f906(","").replace("%&$HTSSGRSRy35644rFGFlP}';","\n"))
         else:st.error("Wrong Password")
