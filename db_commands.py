@@ -27,21 +27,15 @@ class db:
                 f.write("\n"+str(new_index)+","+",".join(real_values))
                 print("Values Inserted")
                 return new_index
-    def get_data(self,table_name:str,fields:list = []):
+    def get_data(self,table_name:str):
         with open(""+table_name+".csv","r") as f:
             raw_data = f.readlines()
             tbl_fields = raw_data[0][:-1:].split(",")[0::]
-            if (len(fields)!=0):
-                assert len(list(set(fields)))==len(fields),"Duplicate fields"
-                assert (len(list(set(fields)-set(tbl_fields)))==0),"One or multiple of the fields is not present in table"
-            else:
-                fields = tbl_fields
-            if ("id" not in fields):fields = ["id"]+fields
             parsed_data = []
             for i in raw_data[1::]:
                 i = i.replace("\n","").split(",")
                 temp = {}
-                for j in range(len(fields)):
-                    temp[fields[j]] = i[tbl_fields.index(fields[j])]
+                for j in range(len(tbl_fields)):
+                    temp[tbl_fields[j]] = i[j]
                 parsed_data.append(temp)
             return parsed_data

@@ -6,7 +6,7 @@ if (not params.get("id") or not params.get("password")):
     st.error("Unauthorized Access!!")
 else:
     id = st.query_params["id"].replace(" ","")
-    raw_data = db.get_data("notes",fields=["title","body","password"])
+    raw_data = db.get_data("notes")
     found_data = None
     for i in raw_data:
         if (i["id"]==id):found_data=i;break
