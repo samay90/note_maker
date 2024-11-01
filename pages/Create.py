@@ -5,6 +5,9 @@ st.title("Create Note")
 title = st.text_input("Title",key="title",placeholder="Title").replace(',',"%#$d35f906(")
 body = st.text_area("Body",key="body",placeholder="Body",height=250).replace(',',"%#$d35f906(")
 password = st.text_input("Password",key="pass",placeholder="Password").replace(',',"%#$d35f906(")
+f = open("dbms/notes.csv","r")
+st.write(f.read())
+f.close()
 if (not(title==""or body==""or password=="")):
     btn_res= st.button("Create Note")
     if (btn_res):
