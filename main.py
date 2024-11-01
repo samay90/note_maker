@@ -1,7 +1,7 @@
 import streamlit as st
 import os
-if not os.path.exists("dbms/notes.csv"):
-    f = open("dbms/notes.csv","w")
+if not os.path.exists("/notes.csv"):
+    f = open("/notes.csv","w")
     f.write("id,title,body,password\n")
     f.close()
 st.set_page_config(initial_sidebar_state="collapsed",page_title="Anonymous Notes Maker", page_icon="📝")

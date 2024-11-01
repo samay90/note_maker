@@ -1,5 +1,5 @@
 import streamlit as st
-from dbms.db_commands import db
+from db_commands import db
 db = db()
 params = st.query_params
 if (not params.get("id") or not params.get("password")):
