@@ -1,3 +1,11 @@
+# Team members and there contributions ( Does not show relative ranking of contributions )
+# Samay Patel (2403127) - Custom Database for Notes and Home Page
+# Amruta Dagle (2403113) - Create note section
+# Dhanvith Kumar (2403110) - Find Note Section
+# Saksham Pandey (2404232) - Find Note Section
+# Joy Prakash (2403120) - View Note Section
+
+
 import streamlit as st
 import os
 if not os.path.exists("notes.csv"):

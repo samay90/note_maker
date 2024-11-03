@@ -1,5 +1,4 @@
 import streamlit as st
-
 st.title("Find Note")
 id = st.text_input("Note Id",key="id",placeholder="Enter note id")
 password = st.text_input("Password",key="pass",placeholder="Password")
