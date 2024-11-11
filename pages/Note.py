@@ -7,6 +7,7 @@ if (not params.get("id") or not params.get("password")):
 else:
     id = st.query_params["id"].replace(" ","")
     raw_data = db.get_data("notes")
+    print(raw_data)
     found_data = None
     for i in raw_data:
         if (i["id"]==id):found_data=i;break

@@ -18,7 +18,7 @@ st.header("How to use ?")
 st.write("""
 1) Just type title and body of your notes
 2) Set a password
-3) Done just user it...
+3) Done! just use it...
 """)
 st.header("Create your notes today!!")
 st.page_link("pages/Create.py",label="Create Note",icon="📝")

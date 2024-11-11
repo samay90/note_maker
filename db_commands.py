@@ -1,9 +1,6 @@
-import os
 import time
 import random
 class db:
-    def __init__(self):
-        self.root = ""
     def insert_into_table(self,table_name:str,values:list,fields:list = None):
         with open(""+table_name+".csv","r") as f:
             tbl_fields = f.readline().replace("\n","").split(",")[1::]
