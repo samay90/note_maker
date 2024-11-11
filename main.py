@@ -20,6 +20,6 @@ st.write("""
 2) Set a password
 3) Done! just use it...
 """)
-st.header("Create your notes today!!")
+st.header("Create your note today!!")
 st.page_link("pages/Create.py",label="Create Note",icon="📝")
 st.page_link("pages/Find Note.py",label="Find Note",icon="🔍")
